@@ -106,17 +106,17 @@ This is a web application initially built with PHP, MySQL, and JavaScript to con
                 motor6 INT,
                 status TINYINT(1) DEFAULT 1
             );
-            
-📂 **Deploy Project Files:
-    * Copy the entire robot_arm_control folder (containing your PHP, HTML, JS, CSS files) to your XAMPP's htdocs directory.
-    * Example path: C:\xampp\htdocs\robot_arm_control
+          
+4.  📂 Deploy Project Files:            
+     * Copy the entire robot_arm_control folder (containing your PHP, HTML, JS, CSS files) to your XAMPP's htdocs directory.
+     * Example path: C:\xampp\htdocs\robot_arm_control
 
-✅ **Test Database Connection (Optional):
+5.  ✅ Test Database Connection (Optional):
     * If needed, edit connectToDB.php to match your MySQL credentials (default XAMPP: user root, no password).
     * Open in browser: 🔗 http://localhost/robot_arm_control/connectToDB.php
         * You should see "Connection failed:" if there's an error, or nothing if successful (meaning it connected without issues).
 
-🌐 **Launch Web Application (Optional):
+6.  🌐 Launch Web Application (Optional):
     * Open in browser: 🔗 http://localhost/robot_arm_control/index.html
     * You can now test the web interface directly.
 
