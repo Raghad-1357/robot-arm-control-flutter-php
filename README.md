@@ -131,7 +131,6 @@ This is a web application initially built with PHP, MySQL, and JavaScript to con
    * Navigate to a suitable directory where you want to create your Flutter project (e.g., cd C:\Users\YourUser\Documents\FlutterProjects).
    * Run the command to create a new Flutter app (replace robot_arm_app with your desired app name):
      flutter create robot_arm_app
-
    * Navigate into your newly created project directory:
      cd robot_arm_app
 
@@ -139,6 +138,7 @@ This is a web application initially built with PHP, MySQL, and JavaScript to con
    * Locate the default main.dart file in your new project: robot_arm_app\lib\main.dart
    * Replace this file with your custom main.dart file that contains your robot arm control UI and logic.
      * (You would provide your main.dart separately or upload it to your GitHub repository for others to use.)
+       
  * 📦 Update pubspec.yaml Dependencies:
    * Open robot_arm_app\pubspec.yaml (this file manages project dependencies) using a text editor or IDE (like VS Code or Android Studio).
    * Under the dependencies: section, add the http and url_launcher packages as follows:
@@ -151,15 +151,14 @@ This is a web application initially built with PHP, MySQL, and JavaScript to con
   # For information on the generic Dart part of this file, see the
   # following page: https://dart.dev/tools/pub/pubspec
   # The following section is specific to Flutter packages.
-
    * Save the file.
+
  * ⚙️ Configure Backend IP Address (baseUrl):
    * CRUCIAL STEP: The Flutter app needs to know your PC's local IP address to communicate with the XAMPP server.
    * Find your PC's IP (Windows): Open Command Prompt and type ipconfig. Look for "IPv4 Address" under your active network adapter (Wi-Fi or Ethernet). E.g., 192.168.1.100.
    * Open robot_arm_app\lib\main.dart and update the baseUrl variable:
      final String baseUrl = "http://YOUR_PC_IP_ADDRESS/robot_arm_control";
 // Example: final String baseUrl = "http://192.168.1.100/robot_arm_control";
-
    * IMPORTANT: Both your Android phone and PC must be connected to the same local network (same Wi-Fi router).
 
  * 🔧 Configure Android NDK Version:
@@ -167,6 +166,7 @@ This is a web application initially built with PHP, MySQL, and JavaScript to con
      * Open Android Studio -> File -> Settings (or File -> Project Structure on some versions) -> Appearance & Behavior -> System Settings -> Android SDK.
      * Go to "SDK Tools" tab, check "Android NDK (Side by side)".
      * Ensure the specific version (e.g., 27.0.12877973) is selected and "Installed". If not, download/install it.
+       
  * 🔐 Configure Android Manifest Permissions:
    * Open robot_arm_app\android\app\src\main\AndroidManifest.xml.
    * Ensure the following lines are present:
@@ -182,9 +182,11 @@ This is a web application initially built with PHP, MySQL, and JavaScript to con
     </application>
 
      * android:usesCleartextTraffic="true" is crucial for connecting to http:// (non-HTTPS) servers on Android 9+ devices.
+       
  * 📦 Install Flutter Packages (after pubspec.yaml update):
    * Inside the robot_arm_app directory (in your Command Prompt), run:
      flutter pub get
+     
 ---
 
 ## 🚀 Running the Flutter App
