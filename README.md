@@ -91,10 +91,10 @@ This is a web application initially built with PHP, MySQL, and JavaScript to con
     * Create Database:
         * Click "New" on the left sidebar.
 
-* Name the database: robot_arm_flutt_db (ensure this name matches connectToDB.php).
-    * **Create robot_arm_flutt table:**
-        * Select the robot_arm_flutt_db database.
-        * Go to the SQL tab and execute the following query:
+    * Name the database: robot_arm_flutt_db (ensure this name matches connectToDB.php).
+        * **Create robot_arm_flutt table:**
+           * Select the robot_arm_flutt_db database.
+           * Go to the SQL tab and execute the following query:
            
             CREATE TABLE robot_arm_flutt (
                 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -107,16 +107,16 @@ This is a web application initially built with PHP, MySQL, and JavaScript to con
                 status TINYINT(1) DEFAULT 1
             );
             
-📂 Deploy Project Files:**
+📂 **Deploy Project Files:
     * Copy the entire robot_arm_control folder (containing your PHP, HTML, JS, CSS files) to your XAMPP's htdocs directory.
     * Example path: C:\xampp\htdocs\robot_arm_control
 
-✅ Test Database Connection (Optional):**
+✅ **Test Database Connection (Optional):
     * If needed, edit connectToDB.php to match your MySQL credentials (default XAMPP: user root, no password).
     * Open in browser: 🔗 http://localhost/robot_arm_control/connectToDB.php
         * You should see "Connection failed:" if there's an error, or nothing if successful (meaning it connected without issues).
 
-🌐 Launch Web Application (Optional):**
+🌐 **Launch Web Application (Optional):
     * Open in browser: 🔗 http://localhost/robot_arm_control/index.html
     * You can now test the web interface directly.
 
