@@ -123,64 +123,68 @@ This is a web application initially built with PHP, MySQL, and JavaScript to con
 ---
 
 ### Part 2: Flutter Application Setup
+ * 📥 Install Flutter SDK:
+   * Follow the official Flutter installation guide for your OS:
+     🔗 https://flutter.dev/docs/get-started/install
+ * ✨ Create a New Flutter Project:
+   * Open your Command Prompt (CMD).
+   * Navigate to a suitable directory where you want to create your Flutter project (e.g., cd C:\Users\YourUser\Documents\FlutterProjects).
+   * Run the command to create a new Flutter app (replace robot_arm_app with your desired app name):
+     flutter create robot_arm_app
 
-📥 Install Flutter SDK:K:**
-    * Follow the official Flutter installation guide for your OS:
-        🔗 [https://flutter.dev/docs/get-started/install](https://flutter.dev/docs/get-started/install)
+   * Navigate into your newly created project directory:
+     cd robot_arm_app
 
-⬇️ Clone the Flutter Project:t:**
-    * Open your terminal (e.g., Command Prompt, PowerShell, Git Bash).
-    * Navigate to your desired development directory.
-    * Clone this repository:
-       
-        git clone your-github-repo-url
-        cd robot_arm_app # Navigate into the Flutter project folder
-        
-📦 Install Flutter Packages:s:**
-    * Inside the robot_arm_app directory, run:
-       
-        flutter pub get
-        
-4.  **⚙️ Configure Backend IP Address (baseUrl):*CRUCIAL STEP: STEP:** The Flutter app needs to know your PC's local IP address to communicate with the XAMPP serverFind your PC's IP (Windows):dows):** Open Command Prompt and type ipconfig. Look for "IPv4 Address" under your active network adapter (Wi-Fi or Ethernet). E.g., 192.168.1.100.
-    * Open robot_arm_app/lib/main.dart and update the baseUrl variable:
-       
-        final String baseUrl = "http://YOUR_PC_IP_ADDRESS/robot_arm_control";
-        // Example: final String baseUrl = "[http://192.168.1.100/robot_arm_control](http://192.168.1.100/robot_arm_control)";
-        
-    * **IMPORTANT:** Both your Android phone and PC must be connesame local network (same Wi-Fi router)Fi rout🔧 Configure Android NDK Version:K Version:**
-    * If you encounter NDK-related build errors (e.g., NDK not configured, Daemon compilation failed), you need to explicitly set the NDK version.
-    * Open robot_arm_app/android/app/build.gradle.kts.
-    * Inside the android { ... } block, add/update the ndkVersion property to match the required version (e.g., 27.0.12877973):
-       
-        android {
-            // ... other configurations
-            ndkVersion = "27.0.12877973" // Update this based on the error message (e.g., from url_launcher)
-        }
-        
-    * **To Install NDK via Android Studio:**
-        * Open Android Studio -> File -> Settings -> Appearance & Behavior -> System Settings -> Android SDK.
-        * Go to "SDK Tools" tab, check "Android NDK (Side by side)".
-        * Ensure the specific version (e.g., 27.0.12877973) is selected and "Installed". If not, download/install it.
+ * 📄 Replace main.dart:
+   * Locate the default main.dart file in your new project: robot_arm_app\lib\main.dart
+   * Replace this file with your custom main.dart file that contains your robot arm control UI and logic.
+     * (You would provide your main.dart separately or upload it to your GitHub repository for others to use.)
+ * 📦 Update pubspec.yaml Dependencies:
+   * Open robot_arm_app\pubspec.yaml (this file manages project dependencies) using a text editor or IDE (like VS Code or Android Studio).
+   * Under the dependencies: section, add the http and url_launcher packages as follows:
+     dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.2.1 # Add this line
+  url_launcher: ^6.2.5 # Add this line
+  # The following section is for the development environment.
+  # For information on the generic Dart part of this file, see the
+  # following page: https://dart.dev/tools/pub/pubspec
+  # The following section is specific to Flutter packages.
 
-رغد الرشيدي, [01/02/47 11:44 ص]
-6.  🔐 Configure Android Manifest Permissions:
-    * Open robot_arm_app/android/app/src/main/AndroidManifest.xml.
-    * Ensure the following lines are present:
-        * Inside the <manifest> tag (outside <application>):
-           
-            <uses-permission android:name="android.permission.INTERNET"/>
-            
-        * Inside the <application> tag:
-           
-            <application
-                android:usesCleartextTraffic="true"
-                android:label="robot_arm_app"
-                android:name="${applicationName}"
-                android:icon="@mipmap/ic_launcher">
-                </application>
-            
-        * android:usesCleartextTraffic="true" is crucial for connecting to http:// (non-HTTPS) servers on Android 9+ devices.
+   * Save the file.
+ * ⚙️ Configure Backend IP Address (baseUrl):
+   * CRUCIAL STEP: The Flutter app needs to know your PC's local IP address to communicate with the XAMPP server.
+   * Find your PC's IP (Windows): Open Command Prompt and type ipconfig. Look for "IPv4 Address" under your active network adapter (Wi-Fi or Ethernet). E.g., 192.168.1.100.
+   * Open robot_arm_app\lib\main.dart and update the baseUrl variable:
+     final String baseUrl = "http://YOUR_PC_IP_ADDRESS/robot_arm_control";
+// Example: final String baseUrl = "http://192.168.1.100/robot_arm_control";
 
+   * IMPORTANT: Both your Android phone and PC must be connected to the same local network (same Wi-Fi router).
+
+ * 🔧 Configure Android NDK Version:
+   * To Install NDK via Android Studio:
+     * Open Android Studio -> File -> Settings (or File -> Project Structure on some versions) -> Appearance & Behavior -> System Settings -> Android SDK.
+     * Go to "SDK Tools" tab, check "Android NDK (Side by side)".
+     * Ensure the specific version (e.g., 27.0.12877973) is selected and "Installed". If not, download/install it.
+ * 🔐 Configure Android Manifest Permissions:
+   * Open robot_arm_app\android\app\src\main\AndroidManifest.xml.
+   * Ensure the following lines are present:
+     * Inside the <manifest> tag (outside <application>):
+       <uses-permission android:name="android.permission.INTERNET"/>
+
+     * Inside the <application> tag:
+       <application
+    android:usesCleartextTraffic="true"
+    android:label="robot_arm_app"
+    android:name="${applicationName}"
+    android:icon="@mipmap/ic_launcher">
+    </application>
+
+     * android:usesCleartextTraffic="true" is crucial for connecting to http:// (non-HTTPS) servers on Android 9+ devices.
+ * 📦 Install Flutter Packages (after pubspec.yaml update):
+   * Inside the robot_arm_app directory (in your Command Prompt), run:
+     flutter pub get
 ---
 
 ## 🚀 Running the Flutter App
@@ -231,5 +235,3 @@ This is a web application initially built with PHP, MySQL, and JavaScript to con
 ## 👩‍💻 Author
 
 Developed by Raghad Alrashidi
-
----
