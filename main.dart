@@ -37,10 +37,7 @@ class _RobotArmHomePageState extends State<RobotArmHomePage> {
   List<Map<String, dynamic>> savedPoses = [];
 
   // عنوان URL الأساسي لملفات PHP.
-  // إذا كنتِ تختبرين على محاكي Android: استخدمي 10.0.2.2 بدلاً من localhost
-  // إذا كنتِ تختبرين على جهاز حقيقي متصل بنفس الشبكة: استخدمي عنوان IP لجهاز الكمبيوتر الخاص بكِ
-  // تأكدي أن XAMPP يعمل وأن Apache Server يعمل.
-  final String baseUrl = "http://192.168.8.203/robot_arm_flutter"; // استبدلي بالمسار الصحيح لملفات PHP لديك
+  final String baseUrl = "http://192.168.8.203/robot_arm_flutter";
 
   @override
   void initState() {
@@ -92,27 +89,6 @@ class _RobotArmHomePageState extends State<RobotArmHomePage> {
       final response = await http.get(Uri.parse('$baseUrl/get_run_pose.php'));
 
       if (response.statusCode == 200) {
-        // بما أن get_run_pose.php يعيد HTML مباشرة، نحتاج لتحليلها.
-        // هذه طريقة بسيطة. لتطبيق أكثر قوة، يمكنكِ تعديل PHP لإرجاع JSON.
-        // في الوقت الحالي، سنقوم بتحليل HTML يدوياً لاستخراج البيانات.
-        // هذا الجزء سيكون أكثر تعقيداً قليلاً من المتوقع لأن PHP الخاص بكِ لا يعيد JSON.
-        // البديل الأفضل: تعديل get_run_pose.php ليعيد JSON. سأفترض هذا للتسهيل.
-
-        // ** اقتراح: تعديل get_run_pose.php لإرجاع JSON **
-        // غيري get_run_pose.php إلى:
-        /*
-        <?php
-        include 'connectToDB.php';
-        $result = $conn->query("SELECT * FROM robot_arm_flutt WHERE status = 1");
-        $poses = [];
-        while($row = $result->fetch_assoc()) {
-            $poses[] = $row;
-        }
-        echo json_encode($poses);
-        $conn->close();
-        ?>
-        */
-        // إذا قمتِ بذلك، سيكون الكود التالي في Flutter أسهل بكثير:
         final List<dynamic> data = json.decode(response.body);
         setState(() {
           savedPoses = data.map((item) => item as Map<String, dynamic>).toList();
