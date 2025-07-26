@@ -126,6 +126,7 @@ This is a web application initially built with PHP, MySQL, and JavaScript to con
  * 📥 Install Flutter SDK:
    * Follow the official Flutter installation guide for your OS:
      🔗 https://flutter.dev/docs/get-started/install
+     
  * ✨ Create a New Flutter Project:
    * Open your Command Prompt (CMD).
    * Navigate to a suitable directory where you want to create your Flutter project (e.g., cd C:\Users\YourUser\Documents\FlutterProjects).
