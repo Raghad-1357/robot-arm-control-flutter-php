@@ -148,10 +148,7 @@ This is a web application initially built with PHP, MySQL, and JavaScript to con
     sdk: flutter
   http: ^1.2.1 # Add this line
   url_launcher: ^6.2.5 # Add this line
-  # The following section is for the development environment.
-  # For information on the generic Dart part of this file, see the
-  # following page: https://dart.dev/tools/pub/pubspec
-  # The following section is specific to Flutter packages.
+
    * Save the file.
 
  * ⚙️ Configure Backend IP Address (baseUrl):
