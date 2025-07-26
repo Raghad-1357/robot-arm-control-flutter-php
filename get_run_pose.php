@@ -9,8 +9,8 @@ while($row = $result->fetch_assoc()) {
     $poses[] = $row; // إضافة كل صف كمصفوفة إلى قائمة الوضعيات
 }
 
-header('Content-Type: application/json'); // إرسال ترويسة تشير إلى أن المحتوى JSON
-echo json_encode($poses); // تحويل قائمة الوضعيات إلى JSON وإرجاعها
+header('Content-Type: application/json'); 
+echo json_encode($poses); 
 
 $conn->close();
 ?>
